@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bancomat_Exercise_1", "Bancomat_Exercise\Bancomat_Exercise_1.csproj", "{EB828ECC-E211-4DE0-ABA6-9AD1CCC1D38C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bancomat_Exercise_2", "Bancomat_Exercise _2\Bancomat_Exercise_2.csproj", "{3F4EFB23-E42C-4785-8DE8-773554C3B910}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EB828ECC-E211-4DE0-ABA6-9AD1CCC1D38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB828ECC-E211-4DE0-ABA6-9AD1CCC1D38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB828ECC-E211-4DE0-ABA6-9AD1CCC1D38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4EFB23-E42C-4785-8DE8-773554C3B910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4EFB23-E42C-4785-8DE8-773554C3B910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4EFB23-E42C-4785-8DE8-773554C3B910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4EFB23-E42C-4785-8DE8-773554C3B910}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

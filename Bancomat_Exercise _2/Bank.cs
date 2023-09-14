@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 
 namespace Bancomat_Exercise
@@ -10,7 +11,7 @@ namespace Bancomat_Exercise
         public Value ValueType { get; }
         public List<Customer> Customers { get; set; }
         public List<CurrentAccount> CurrentAccounts { get; set; }
-        public Bancomat bancomat1 { get; set; }
+        //public Bancomat bancomat1 { get; set; }
         public Bank(string nome, Value valueType)
         {
             BankName = nome;
@@ -26,7 +27,7 @@ namespace Bancomat_Exercise
             public string Iban { get; }
             public string IdOwner { get; }
             public double Balance { get; set; }
-
+            public List<Bancomat> bancomats;
 
 
 
@@ -36,6 +37,7 @@ namespace Bancomat_Exercise
                 //Iban = random.Next(1000, 100000); //iban di prova
                 IdOwner = owner.IdCustomer;
                 Balance = 1000;
+                bancomats = new List<Bancomat>();
 
             }
 
@@ -45,6 +47,20 @@ namespace Bancomat_Exercise
                 IdOwner = idOwner;
                 Balance = 1000;
             }
+
+            public void CreateBancomat(string number, string pin)
+            {
+                bancomats.Add(new("number", "pin"));
+            }
+
+            //public void BanCustomer(string username)
+            //{
+            //    Customer customer =
+            //        (from c in Customers
+            //         where c.Username == username
+            //         select c).FirstOrDefault();
+            //    customer.Ban = true;
+            //}
 
 
             public void Withdrawal(double amount)
@@ -95,46 +111,21 @@ namespace Bancomat_Exercise
         #region BANCOMAT
         public class Bancomat
         {
-            public List<Customer> customers;
-            public List<CurrentAccount> currentAccounts;
-            public Bancomat(List<Customer> input, List<CurrentAccount> input2)
+            //public List<Customer> customers;
+            //public List<CurrentAccount> currentAccounts;
+            public string Pin { get; }
+            public string CodiceBancomat { get; }
+
+            public Bancomat(string pin, string codice)
             {
 
-                customers = input;
-                currentAccounts = input2;
+                Pin = pin;
+                CodiceBancomat = codice;
 
             }
 
 
-            public bool CheckUsername(string username)
-            {
-                string result =
-                    (from c in customers
-                     where c.Username == username
-                     select c.Username).FirstOrDefault();
-                if (result == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
 
-            }
-
-            public Customer CheckCustomer(string username, string password)
-            {
-                Customer customer = //Fare direttamente return per controllare
-                    (from c in customers
-                     where c.Username == username && c.Password == password
-                     select c).FirstOrDefault();
-
-
-                return customer;
-
-
-            }
 
             public CurrentAccount SearchCurrentAccount(string iban)
             {
@@ -232,53 +223,81 @@ namespace Bancomat_Exercise
         //List<CurrentAccount> currentAccounts = new List<CurrentAccount>();
 
         #region CHEKCS
+        //public bool CheckUsername(string username)
+        //{
+        //    string result =
+        //        (from c in customers
+        //         where c.Username == username
+        //         select c.Username).FirstOrDefault();
+        //    if (result == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
 
+        //}
+
+        public bool CheckBancomatNumber(string number)
+        {
+            string test = "";
+            foreach (var current in CurrentAccounts)
+            {
+
+
+            }
+            string number =
+                (from n in CurrentAccounts)
+        }
+
+        public Customer CheckCustomer(string username, string password)
+        {
+            Customer customer = //Fare direttamente return per controllare
+                (from c in customers
+                 where c.Username == username && c.Password == password
+                 select c).FirstOrDefault();
+
+
+            return customer;
+
+
+        }
 
         #endregion
 
 
 
 
-        public void CreateBancomat()
-        {
-            bancomat1 = new Bancomat(Customers, CurrentAccounts);
-        }
-
-        public void BanCustomer(string username)
-        {
-            Customer customer =
-                (from c in Customers
-                 where c.Username == username
-                 select c).FirstOrDefault();
-            customer.Ban();
-        }
-
-        public void UnBanCustomer(string username)
-        {
-            Customer customer =
-                (from c in Customers
-                 where c.Username == username
-                 select c).FirstOrDefault();
-            customer.UnBan();
-        }
-
-        public bool CheckBan(string username)
-        {
-            Customer customer =
-                (from c in Customers
-                 where c.Username == username
-                 select c).FirstOrDefault();
-            if (customer.IsBanned())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
 
 
-        }
+        //public void UnBanCustomer(string username)
+        //{
+        //    Customer customer =
+        //        (from c in Customers
+        //         where c.Username == username
+        //         select c).FirstOrDefault();
+        //    customer.Ban = false;
+        //}
+
+        //public bool CheckBan(string username)
+        //{
+        //    Customer customer =
+        //        (from c in Customers
+        //         where c.Username == username
+        //         select c).FirstOrDefault();
+        //    if (customer.Ban)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+
+
+        //}
 
 
 
